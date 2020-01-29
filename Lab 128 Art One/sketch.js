@@ -8,23 +8,24 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadBoids();
+  loadBoids(10);
 
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-  fill(255, 255, 255);
-  rect(185, 200, 50, 50);
-  ellipse(100, 100, 50, 50);
-  ellipse(300, 100, 50, 50);
-  fill(255, 0, 0);
-  arc(210, 300, 200, 75, 0, PI);
-  fill(0 , 0, 0);
-  ellipse(100, 100, 25, 25);
-  ellipse(300, 100, 25, 25);
+  background(5, 5, 5);
+  runBoids();
 }
 
-function loadBoids(){
+function loadBoids(x){
+  for(var i = 0; i < x; i++){//creates the ship(s)
+    boids[i] = new Boid(random(100, 700), random(100, 700), random(-2, 2), random(-2, 2));
+  }
+}
 
+function runBoids(){
+  for(var i = 0; i < boids.length; i++){//makes the ship(s) appear
+    boids[i].run();
+  }
 }

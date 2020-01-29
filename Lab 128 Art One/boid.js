@@ -1,17 +1,17 @@
 //  Gabby Melamed
 // 	Lab 128 Art One
 class Boid {
-  constructor(x, y, vx, vy, ax, ay){
+  constructor(x, y, vx, vy){
     this.loc = createVector(x, y);
     this.vel = createVector(vx, vy);
-    this.acc = createVector(ax, ay);
-    this.clr = color(5, 5, 5);
+    this.acc = createVector(0, 0);
+    this.clr = color(255, 0, 0);
   }
 
   run(){
     this.update();
-    this.checkEdges();
     this.render();
+    this.checkEdges();
   }
 
   update(){
@@ -24,11 +24,26 @@ class Boid {
     this.loc.add(this.vel);//adds velocity to location
   }
 
-  checkEdges(){
-
-  }
-
   render(){
-
+      fill(this.clr);
+      ellipse(this.loc.x, this.loc.y, 20, 20);
+      fill(255, 0, 0);
+      line(this.loc.x, this.loc.y, 10, 10);
   }
+
+  checkEdges(){
+    if(this.loc.x < 0){
+      this.vel.x = -this.vel.x;
+    }
+    if(this.loc.x > width){
+      this.vel.x = -this.vel.x;
+    }
+    if(this.loc.y < 0){
+      this.vel.y = -this.vel.y;
+    }
+    if(this.loc.y > height){
+      this.vel.y = -this.vel.y;
+    }
+  }
+
 }
