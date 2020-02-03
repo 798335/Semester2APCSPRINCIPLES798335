@@ -1,11 +1,10 @@
 //  Gabby Melamed
-// 	Lab 128 Art One
+// 	Lab 130 Art Two
 class Boid {//creates boid class
-  constructor(x, y, vx, vy){
+  constructor(x, y, vx, vy){//boid properties
     this.loc = createVector(x, y);
     this.vel = createVector(vx, vy);
     this.acc = createVector(0, 0);
-    //this.clr = color(255,105,180);
     this.clr = color(random(0, 255), random(0, 255), random(0, 255));
   }
 
@@ -19,13 +18,6 @@ class Boid {//creates boid class
     this.vel.limit(3);//limits the velocity
     this.vel.add(this.acc);//adds acceleration to velocity
     this.loc.add(this.vel);//adds velocity to location
-
-    // var distToCenter;
-    // distToCenter = this.loc.dist(mainBoid);//finds the distance from the ship(s) to the planet
-    //
-    // this.acc = p5.Vector.sub(mainBoid, this.loc);
-    // this.acc.normalize();
-    // this.acc.mult(0.1);
   }
 
   render(){//makes lines between the boids
