@@ -1,5 +1,5 @@
-//  Your Name
-// 	Date or version number
+//  Gabby Melamed
+// 	Art Project
 //  This is a comment
 //  The setup function function is called once when your program begins
 function setup() {

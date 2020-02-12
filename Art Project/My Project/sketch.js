@@ -24,13 +24,11 @@ function drawSquares(){//makes squares appear and follow the mouse
 
 //+++++++++++++++++++++++the color range of the squares will change at different second intervals
 
-	if (time < 5){
-		c = color(random(0, 100), 0, 0);
-	}else if(time >= 5 && time < 10){
-		c = color(random(100, 255), 0, 0);
-	}else if(time >= 10 && time < 15){
+	if (time < 10){
+		c = color(random(0, 255), 0, 0);
+	}else if(time >= 10 && time < 20){
 		c = color(random(200, 255), random(100, 140), 0);
-	}else if(time >= 15 && time < 30){
+	}else if(time >= 20 && time < 30){
 		c = color(random(200, 255), random(200, 255), 0);
 	}else if(time >=30 && time < 40){
 		c = color(0, random(0, 255), 0);
