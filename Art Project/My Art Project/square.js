@@ -1,5 +1,5 @@
-//Gabby Melamed
-//Art Project
+//  Gabby Melamed
+// 	Art Project
 
 class Square {
 
