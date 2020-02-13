@@ -3,7 +3,7 @@
 
 class Square {
 
-  constructor(x, y, clr){//constructs values to pass into the squares (loaction and color)
+  constructor(x, y, clr){//constructs values to pass into the squares (location and color)
     this.loc = createVector(x, y);
     this.clr = clr;
   }
