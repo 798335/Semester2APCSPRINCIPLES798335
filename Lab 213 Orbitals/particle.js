@@ -9,7 +9,7 @@ class Particle{
     this.clr = color(random(255), random(255), random(255));
     this.fclr = color(random(255), random(255), random(255), 10);
     this.orbiters = [];
-    this.loadOrbiters(1);
+    this.loadOrbiters(1);//calls the loadOrbiters function
     this.angle = random(TWO_PI);
   }
 
@@ -38,8 +38,8 @@ class Particle{
   render(){
     fill(5, 5, 5);
     ellipse(this.loc.x, this.loc.y, 50, 50);//creates the particles
-    fill(color(random(255), random(255), random(255)));
-    for(var i = 0; i < this.orbiters.length; i++){//makes the orbiters follow around the particles
+    fill(color(255, 0, 0));
+    for(var i = 0; i < this.orbiters.length; i++){//makes the orbiters rotate around the particles
       var ox = this.loc.x + 30*cos(this.angle);
       var oy = this.loc.y + 30*sin(this.angle);
       ellipse(ox, oy, 5);
