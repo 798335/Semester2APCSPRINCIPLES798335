@@ -5,10 +5,10 @@ class Button {
 
   //constructs values to pass into the buttons
 
-  constructor(x, y, msg){
+  constructor(x, y, msg, clr){
     this.loc = createVector(x, y);
     this.msg = msg;
-    this.clr = color(random(255), random(255), random(255));
+    this.clr = clr;
   }
 
 
