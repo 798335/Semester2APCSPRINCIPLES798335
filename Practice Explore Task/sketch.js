@@ -3,13 +3,15 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var snake;
-var monsters = [];
+var monster;
 var food;
 var gameState = 1;
 var buttonStart;
 var x = 0;
 var numOfMonsters, monButColor;
 var startButton, monster1Button, monster2Button, monster3Button;
+var lives = 3;
+console.log(lives);
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -22,6 +24,9 @@ function setup() {
 function draw() {
   background(5, 5, 5);
   runObjects();
+  // fill(255, 105, 180);
+  // textSize(15);
+  // text('You have' + lives, 'lives.', 50, 50);
   if(gameState === 1){
     startGame();
   }else if(gameState === 2){
@@ -54,8 +59,8 @@ function startGame(){
     mouseY > 550 &&
     mouseY < 700){
       numOfMonsters = 1;
-      monButColor = color(100, 100, 100);
-      monster1Button.run();
+      //monButColor = color(100, 100, 100);
+      //monster1Button.run();
     }
   if(mouseIsPressed &&
       mouseX > 300 &&
@@ -63,8 +68,8 @@ function startGame(){
       mouseY > 550 &&
       mouseY < 700){
         numOfMonsters = 2;
-        monButColor = color(50, 50, 50);
-        monster2Button.run();
+        //monButColor = color(50, 50, 50);
+        //monster2Button.run();
       }
   if(mouseIsPressed &&
         mouseX > 500 &&
@@ -72,8 +77,8 @@ function startGame(){
         mouseY > 550 &&
         mouseY < 700){
           numOfMonsters = 3;
-          monButColor = color(50, 50, 50);
-          monster3Button.run();
+          //monButColor = color(50, 50, 50);
+          //monster3Button.run();
         }
   fill(255, 105, 180);
   textSize(75);
@@ -95,6 +100,9 @@ function startGame(){
 function gameMode(){
   fill(0);
   checkTangled();
+  // fill(255, 105, 180);
+  // textSize(15);
+  // text('You have' + lives, 'lives.', 50, 50);
 }
 
 function endGame(){
@@ -109,17 +117,19 @@ function endGame(){
 function loadObjects(){
     snake = new Snake(20, 20, 15, 15);
     food = new Food(random(100, 700), random(100, 700));
-    for(var i = 0; i < numOfMonsters + 1; i++){
-      monsters[i] = new Monster(random(50, 750), 50);
-    }
+    //if(numOfMonsters > 0){
+      //for(var i = 0; i < 1 + 1; i++){
+        monster = new Monster(random(50, 750), 25, 2, 2);
+      //}
+    //}
 }
 
 function runObjects(){
   snake.run();
   food.run();
-  for(var i = 0; i < monsters.length; i++){//draws the particles
-    monsters[i].run();
-  }
+  //for(var i = 0; i < monsters.length; i++){//draws the particles
+    monster.run();
+  //}
 }
 
 function checkTangled(){
