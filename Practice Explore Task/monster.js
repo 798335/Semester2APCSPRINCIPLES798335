@@ -13,19 +13,23 @@ class Monster{
   }
 
   update(){
-    this.vel.add(this.acc);//adds acceleration to velocity
-    this.vel.limit(7);//limites how fast the particles can go
-    this.loc.add(this.vel);//makes the particles move
+    // this.vel.add(this.acc);//adds acceleration to velocity
+    // this.vel.limit(7);//limites how fast the particles can go
+    // this.loc.add(this.vel);//makes the particles move
 
-    if(monster.loc.x >= snake.head.x &&
-        monster.loc.x <= snake.head.x &&
-        monster.loc.y >= snake.head.y &&
-        monster.loc.y <= snake.head.y){
+    if(monster.loc.x + 25 >= snake.head.x &&
+        monster.loc.x - 25 <= snake.head.x + 15 &&
+        monster.loc.y + 25 >= snake.head.y &&
+        monster.loc.y - 25 <= snake.head.y + 15){
           lives = lives - 1;
           console.log(lives);
-          this.monster.x = random(100, 700);
-          this.monster.y = random(100, 700);
-          this.render();
+          return false;
+          // for(var i = lives; i > 0; i++){
+          //
+          // }
+          //this.monster.x = random(100, 700);
+          //this.monster.y = random(100, 700);
+          //this.render();
       }
   }
 

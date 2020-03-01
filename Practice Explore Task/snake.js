@@ -79,11 +79,39 @@ if(keyCode === RIGHT_ARROW) {
   }
 
   checkEdges() {
-    if(this.head.x > 800 ||
+    if(this.head.x > width ||
       this.head.x < 0 ||
-      this.head.y > 800 ||
+      this.head.y > height ||
       this.head.y < 0){
-        gameState = 3;
+        monster2 = new Monster(400, 750, 2, 2);
+        monster2.run();
+        //gameState = 3;
+        //this.vel.x = -this.vel.x;
+        //this.vel.y = -this.vel.y;
       }
+      //monster2.run();
+      // if(this.head.x > width || this.head.x < 0){
+      //   this.vel.x = -this.vel.x;
+      // }
+      //
+      // if(this.head.y > height || this.head.y < 0){
+      //   this.vel.y = -this.vel.y;
+      // }
+      //||
+    //
+        //if(this.head.x > width || this.head.x < 0){
+        //   this.vel.x = -this.vel.x;
+        // //}
+        // //if(this.head.y > height || this.head.y < 0){
+        //   this.vel.y = -this.vel.y
+        // //}
+        //var monster2 = new Monster(400, 750, 2, 2);
+        //monster2.run();
+        //for(var i = lives; i > 0; i++){
+          //monsters[i].push(createVector(monsters[i].loc.x + 15, monsters[i].loc.y + 15));
+          //monsters[i].run();
+        //}
+        //gameState = 3;
+      //}
   }
 }

@@ -3,7 +3,8 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var snake;
-var monster;
+var monster, monster2;
+//var monsters = [];
 var food;
 var gameState = 1;
 var buttonStart;
@@ -118,7 +119,7 @@ function loadObjects(){
     snake = new Snake(20, 20, 15, 15);
     food = new Food(random(100, 700), random(100, 700));
     //if(numOfMonsters > 0){
-      //for(var i = 0; i < 1 + 1; i++){
+      //for(var i = 0; i < 1; i++){
         monster = new Monster(random(50, 750), 25, 2, 2);
       //}
     //}
