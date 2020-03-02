@@ -3,7 +3,7 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var snake;
-var monster, monster2;
+var monster;
 //var monsters = [];
 var food;
 var gameState = 1;
@@ -25,9 +25,9 @@ function setup() {
 function draw() {
   background(5, 5, 5);
   runObjects();
-  // fill(255, 105, 180);
-  // textSize(15);
-  // text('You have' + lives, 'lives.', 50, 50);
+  fill(255, 105, 180);
+  textSize(15);
+  text('You have ' + lives + ' lives.', 50, 50);
   if(gameState === 1){
     startGame();
   }else if(gameState === 2){
@@ -101,7 +101,7 @@ function startGame(){
 function gameMode(){
   fill(0);
   checkTangled();
-  // fill(255, 105, 180);
+  // fill(255);
   // textSize(15);
   // text('You have' + lives, 'lives.', 50, 50);
 }
