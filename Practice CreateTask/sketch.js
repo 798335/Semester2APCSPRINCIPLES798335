@@ -3,8 +3,8 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var snake;
-var monster;
-//var monsters = [];
+//var monster;
+var monsters = [];
 var food;
 var gameState = 1;
 var buttonStart;
@@ -18,7 +18,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(114, 100, 100);
-  loadObjects();
+  loadObjects(2);
 }
 
 //  The draw function is called @ 30 fps
@@ -115,22 +115,22 @@ function endGame(){
   text("GAME OVER", 250, 600);
 }
 
-function loadObjects(){
+function loadObjects(x){
     snake = new Snake(20, 20, 15, 15);
     food = new Food(random(100, 700), random(100, 700));
     //if(numOfMonsters > 0){
-      //for(var i = 0; i < 1; i++){
-        monster = new Monster(random(50, 750), 25, 2, 2);
-      //}
+      for(var i = 0; i < x; i++){
+        monsters[i] = new Monster(random(50, 750), 25, 2, 2);
+      }
     //}
 }
 
 function runObjects(){
   snake.run();
   food.run();
-  //for(var i = 0; i < monsters.length; i++){//draws the particles
-    monster.run();
-  //}
+  for(var i = 0; i < monsters.length; i++){//draws the particles
+    monsters[i].run();
+  }
 }
 
 function checkTangled(){

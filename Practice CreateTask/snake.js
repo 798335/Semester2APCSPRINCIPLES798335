@@ -82,24 +82,20 @@ if(keyCode === RIGHT_ARROW) {
   checkEdges() {
     if(this.head.x+15 > width ||
       this.head.x < 0){
-        monster2 = new Monster(400, 750, 2, 2);
+        monsters.push(createVector(400, 750));
+        //monster2 = new Monster(400, 750, 2, 2);
       }
     if(this.head.y+15 > height ||
       this.head.y < 0){
-        monster2 = new Monster(400, 750, 2, 2);
-
-        //this.vel.x = 0;
-        //this.vel.y = 0;
-        //gameState = 3;
-        //this.vel.x = -this.vel.x;
-        //this.vel.y = -this.vel.y;
+        monsters.push(createVector(400, 750));
+        //monster2 = new Monster(400, 750, 2, 2);
       }
       if (monster2 !== 0){
-        monster2.run();
-        if(monster2.loc.x + 25 >= snake.head.x &&
-            monster2.loc.x - 25 <= snake.head.x + 15 &&
-            monster2.loc.y + 25 >= snake.head.y &&
-            monster2.loc.y - 25 <= snake.head.y + 15){
+        monsters[2].run();
+        if(monsters[2].loc.x + 25 >= snake.head.x &&
+            monsters[2].loc.x - 25 <= snake.head.x + 15 &&
+            monsters[2].loc.y + 25 >= snake.head.y &&
+            monsters[2].loc.y - 25 <= snake.head.y + 15){
               lives = lives - 1;
               console.log(lives);
             }
