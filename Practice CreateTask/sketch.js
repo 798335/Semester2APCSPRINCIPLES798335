@@ -118,11 +118,21 @@ function endGame(){
 function loadObjects(x){
     snake = new Snake(20, 20, 15, 15);
     food = new Food(random(100, 700), random(100, 700));
-    //if(numOfMonsters > 0){
-      for(var i = 0; i < x; i++){
+    if(numOfMonsters === 1){
+      for(var i = 0; i < 2; i++){
         monsters[i] = new Monster(random(50, 750), 25, 2, 2);
       }
-    //}
+    }
+    if(numOfMonsters === 2){
+      for(var i = 0; i < 3; i++){
+        monsters[i] = new Monster(random(50, 750), 25, 2, 2);
+      }
+    }
+    if(numOfMonsters === 3){
+      for(var i = 0; i < 4; i++){
+        monsters[i] = new Monster(random(50, 750), 25, 2, 2);
+      }
+    }
 }
 
 function runObjects(){

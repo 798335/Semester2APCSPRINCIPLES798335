@@ -82,31 +82,28 @@ if(keyCode === RIGHT_ARROW) {
   checkEdges() {
     if(this.head.x+15 > width ||
       this.head.x < 0){
-        monsters.push(createVector(400, 750));
-        //monster2 = new Monster(400, 750, 2, 2);
+        //monsters.push(createVector(400, 750));
+        monster2 = new Monster(400, 750, 2, 2);
       }
     if(this.head.y+15 > height ||
       this.head.y < 0){
-        monsters.push(createVector(400, 750));
-        //monster2 = new Monster(400, 750, 2, 2);
+        //monsters.push(createVector(400, 750));
+        monster2 = new Monster(400, 750, 2, 2);
       }
       if (monster2 !== 0){
-        monsters[2].run();
-        if(monsters[2].loc.x + 25 >= snake.head.x &&
-            monsters[2].loc.x - 25 <= snake.head.x + 15 &&
-            monsters[2].loc.y + 25 >= snake.head.y &&
-            monsters[2].loc.y - 25 <= snake.head.y + 15){
+        monster2.run();
+        if(monster2.loc.x + 25 >= snake.head.x &&
+            monster2.loc.x - 25 <= snake.head.x + 15 &&
+            monster2.loc.y + 25 >= snake.head.y &&
+            monster2.loc.y - 25 <= snake.head.y + 15){
               lives = lives - 1;
               console.log(lives);
             }
       }
       //monster2.run();
-      // if(this.head.x > width || this.head.x < 0){
-      //   this.vel.x = -this.vel.x;
-      // }
-      //
-      // if(this.head.y > height || this.head.y < 0){
-      //   this.vel.y = -this.vel.y;
+      // if(this.head.x > width || this.head.x < 0 ||
+      //   this.head.y > height || this.head.y < 0){
+      //   gameState = 3;
       // }
       //||
     //
