@@ -83,10 +83,21 @@ if(keyCode === RIGHT_ARROW) {
     if(this.head.x + 15 > width ||
       this.head.x < 0){
         monster2 = new Monster(400, 750, 2, 2);
+        textSize(20);
+        fill(255, 105, 180);
+        text('You fell of the screen!', 100, 300);
+        if(this.vel.x === 5 && this.head.x + 15 > width){
+          text('Click the left arrow', 200, 330);
+        }if(this.vel.x = -5 && this.head.x < 0){
+          text('Click the right arrow', 200, 330);
+        }
       }
     if(this.head.y + 15 > height ||
       this.head.y < 0){
         monster2 = new Monster(400, 750, 2, 2);
+        textSize(20);
+        fill(255, 105, 180);
+        text('You fell of the screen! Use the opposite arrow to get back on.', 100, 300);
       }
       if (monster2 !== 0){
         monster2.run();
@@ -95,7 +106,8 @@ if(keyCode === RIGHT_ARROW) {
             monster2.loc.y + 25 >= snake.head.y &&
             monster2.loc.y - 25 <= snake.head.y + 15){
               lives = lives - 1;
-              console.log(lives);
+            }else{
+              lives = lives;
             }
       }
   }

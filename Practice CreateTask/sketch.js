@@ -1,9 +1,6 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
-//  The setup function function is called once when your program begins
-var snake;
-//var monster;
+//  Gabby Melamed
+// 	Practice Create Task
+var snake;//global variables declared
 var monsters = [];
 var food;
 var gameState = 1;
@@ -11,14 +8,13 @@ var buttonStart;
 var x = 0;
 var numOfMonsters, monButColor;
 var startButton, monster1Button, monster2Button, monster3Button;
-var lives = 50;
-console.log(lives);
+var lives = 50;//declares 50 lives
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(114, 100, 100);
-  loadObjects(2);
+  loadObjects();//calls the load objects function
 }
 
 //  The draw function is called @ 30 fps
@@ -27,11 +23,11 @@ function draw() {
   runObjects();
   fill(255, 105, 180);
   textSize(15);
-  text('You have ' + lives + ' lives.', 50, 50);
+  text('You have ' + lives + ' lives.', 50, 50);//writes a sentence during the game that shows how many lives the user hasleft
   if(lives === 0){
     gameState = 3;
-  }
-  if(gameState === 1){
+  }//end the game when the player looses all their lives
+  if(gameState === 1){//declares the game states corresponding to the numbers
     startGame();
   }else if(gameState === 2){
     gameMode();
@@ -40,10 +36,8 @@ function draw() {
   }
 }
 
-function makeButtons(){
-  monButColor = color(0);
+function makeButtons(){//creates the start button
   startButton = new Button(300, 500, 'START', color(random(255), random(255), random(255)));
-  replayButton = new Button(100, 100, 'REPLAY');
 }
 
 function startGame(){
@@ -83,10 +77,9 @@ function endGame(){
   fill(255);
   textSize(50);
   text("GAME OVER", 250, 600);
-  //replayButton.run();
 }
 
-function loadObjects(x){
+function loadObjects(){
   snake = new Snake(20, 20, 15, 15);
   food = new Food(random(100, 700), random(100, 700));
   monster = new Monster(random(50, 750), 25, 2, 2);
