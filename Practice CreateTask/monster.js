@@ -17,9 +17,6 @@ class Monster{
     this.vel.limit(7);//limites how fast the particles can go
     this.loc.add(this.vel);//makes the particles move
 
-    // for(var i = 0; i < monsters.length; i++){
-    // 
-    // }
     if(this.loc.x + 25 >= snake.head.x &&
         this.loc.x - 25 <= snake.head.x + 15 &&
         this.loc.y + 25 >= snake.head.y &&
@@ -28,6 +25,7 @@ class Monster{
           console.log(lives);
           return false;
       }
+
   }
 
   render(){

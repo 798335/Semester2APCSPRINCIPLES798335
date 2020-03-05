@@ -1,4 +1,4 @@
-var monster2=0;
+var monster2 = 0;
 class Snake {
   constructor(x, y, w, h) {
     this.head = createVector(x, y);
@@ -80,14 +80,12 @@ if(keyCode === RIGHT_ARROW) {
   }
 
   checkEdges() {
-    if(this.head.x+15 > width ||
+    if(this.head.x + 15 > width ||
       this.head.x < 0){
-        //monsters.push(createVector(400, 750));
         monster2 = new Monster(400, 750, 2, 2);
       }
-    if(this.head.y+15 > height ||
+    if(this.head.y + 15 > height ||
       this.head.y < 0){
-        //monsters.push(createVector(400, 750));
         monster2 = new Monster(400, 750, 2, 2);
       }
       if (monster2 !== 0){
@@ -100,26 +98,5 @@ if(keyCode === RIGHT_ARROW) {
               console.log(lives);
             }
       }
-      //monster2.run();
-      // if(this.head.x > width || this.head.x < 0 ||
-      //   this.head.y > height || this.head.y < 0){
-      //   gameState = 3;
-      // }
-      //||
-    //
-        //if(this.head.x > width || this.head.x < 0){
-        //   this.vel.x = -this.vel.x;
-        // //}
-        // //if(this.head.y > height || this.head.y < 0){
-        //   this.vel.y = -this.vel.y
-        // //}
-        //var monster2 = new Monster(400, 750, 2, 2);
-        //monster2.run();
-        //for(var i = lives; i > 0; i++){
-          //monsters[i].push(createVector(monsters[i].loc.x + 15, monsters[i].loc.y + 15));
-          //monsters[i].run();
-        //}
-        //gameState = 3;
-      //}
   }
 }
