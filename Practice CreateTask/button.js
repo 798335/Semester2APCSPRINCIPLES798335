@@ -1,7 +1,7 @@
 //  Gabby Melamed
-// 	09/16/19
+// 	Practice Create Task
 
-class Button {
+class Button {////////////////////start of Button class
 
   //constructs values to pass into the buttons
 
@@ -28,5 +28,4 @@ class Button {
     textSize(20);
     text(this.msg, this.loc.x, this.loc.y);
   }
-
-}
+}//////////////////////end of Button class
