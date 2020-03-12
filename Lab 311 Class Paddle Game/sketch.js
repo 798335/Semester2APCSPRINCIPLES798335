@@ -2,6 +2,7 @@
 //  306
 var paddle, mainBall;
 var balls  = [];
+var c;
 // Setup runs once at the start of your program
 
 

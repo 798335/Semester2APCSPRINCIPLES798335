@@ -7,24 +7,23 @@ class Ball{
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.acc = createVector(0,0.016);
-    this.clr = this.getColor();//random(255), random(255),random(255));
+    //this.clr = this.getColor();//random(255), random(255),random(255));
     this.w = 15;
     this.id = id;
     if(this.id < 0) {this.w = 50;}
  }
 
- getColor(){
-   if(this.id%2 === 0) {
-
-   }else{
-
-   }
- }
+ // getColor(){
+ //   if(this.id%2 === 0) {
+ //
+ //   }else{
+ //
+ //   }
+ // }
 
  run(){
    this.checkEdges();
  }
-
 
   checkEdges(){//+++++++++++++++++++++++++++++++++++++++++++++++++++
     if(this.loc.x < 0){
@@ -45,28 +44,13 @@ class Ball{
 
   update(){//++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     var distToMainBall;
-    //if(this.id >= 0){//  if not mainBall
-
-
-  //  }
 
     this.vel.add(this.acc);
     this.vel.limit(5);
     this.loc.add(this.vel);
     this.render();
 
-    for(var i = 0; i < balls.length + 1; i++){
-      if(this.loc.x + 15 > paddle.loc.x &&
-      this.loc.x - 15 < paddle.loc.x + 100 &&
-      this.loc.y + 15 > paddle.loc.y &&
-      this.loc.y - 15 < paddle.loc.y + 10){
-        if(this.clr === color(255,0,0) && this.vel.y < 0){
-          array.splice(balls, i, 1);
-        }else if(this.clr === color(0, 255, 0) && this.vel.y > 0){
-          array.splice(balls, i, 1);
-        }
-      }
-    }
+    this.removeBall();
   }//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
  render(){
@@ -74,13 +58,37 @@ class Ball{
    if(this.id < 0){
     //mainBall === blue
     fill(0,0,255)
+    c = 'blue';
   }else if(this.id%2 === 0){
      //green
      fill(0,255,0);
+     c = 'green';
    }else{
      // red
      fill(255,0,0);
+     c = 'red';
    }
    ellipse(this.loc.x, this.loc.y, this.w, this.w);
  }//***************************************************************
+
+ isColliding(){//detects when the balls hit the paddle
+   if(this.loc.x > paddle.loc.x &&
+   this.loc.x < paddle.loc.x + paddle.w &&
+  this.loc.y > paddle.loc.y &&
+  this.loc.y < paddle.loc.y + paddle.h){
+    return true;
+  }else{
+    return false
+  }
+ }
+
+ removeBall(){
+   for(var i = balls.length - 1; i > 0; i--){//removes balls from the array if they hit the paddle
+     if(balls[i].isColliding() && this.vel.y > 0 && c === 'green'){
+       balls.splice(i, 1);
+     }else if(balls[i].isColliding() && this.vel.y < 0 && c === 'red'){
+       balls.splice(i, 1);
+     }
+   }
+ }
 }//  end Ball class
