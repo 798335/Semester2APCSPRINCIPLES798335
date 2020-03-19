@@ -6,7 +6,7 @@ class Square {
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.acc = createVector(0,0);
-    this.clr = color(random(255), 0, 0);
+    this.clr = color(random(100, 255), 0, 0);
   }
 
   //displays the buttons on the screen
@@ -26,9 +26,9 @@ class Square {
   }
 
   isColliding(){
-    if( this.loc.x + 200 > paddle.loc.x &&
+    if( this.loc.x + 50 > paddle.loc.x &&
         this.loc.x < paddle.loc.x + paddle.w &&
-        this.loc.y + 100 > paddle.loc.y &&
+        this.loc.y + 50 > paddle.loc.y &&
         this.loc.y < paddle.loc.y + paddle.h){
           return true;
         }else{
@@ -70,7 +70,17 @@ class Square {
         this.loc.x = random(0, 800);
         this.loc.y = random(0, 800);
       }else if(this.vel.y < 0){
-        gameState = 3;
+        if(gameLevel === 'easy'){
+          loadBalls(numBallsEasy * 2);
+        }
+        if(gameLevel==='medium'){
+          loadBalls(numBallsMedium * 2);
+        }
+        if(gameLevel==='hard'){
+          loadBalls(numBallsHard * 2);
+        }
+        //gameState = 3;
+
       }
   }
 }
