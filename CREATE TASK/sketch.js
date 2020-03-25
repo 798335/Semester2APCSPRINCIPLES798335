@@ -249,7 +249,7 @@ function loadBalls(x) {
   for(var i = 0; i < x; i++){
     balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
   }
-  lifeSaver = new Square(random(0, 800), random(0, 800), random(-5, 5), random(-5, 5));
+  lifeSaver = new LifeSaver(random(0, 800), random(0, 700), random(-5, 5), random(-5, 5));
 }
 
 //displays the paddle and the array of balls

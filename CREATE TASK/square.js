@@ -1,11 +1,11 @@
-class Square {
+class LifeSaver {
 
   //constructs values to pass into the buttons
 
   constructor(x, y, dx, dy){
     this.loc = createVector(x, y);
-    this.vel = createVector(dx, dy);
-    this.acc = createVector(0,0);
+    this.vel = createVector(0, 0);
+    this.acc = createVector(0, 0);
     this.clr = color(random(100, 255), 0, 0);
   }
 
@@ -59,7 +59,28 @@ class Square {
     }
   }
 
+  keyReleased(){//makes arrow keys work
+    if(keyCode === UP_ARROW){//up arrow makes snake go up
+      this.vel.x = 0;
+      this.vel.y = -5;
+    }
+    if(keyCode === DOWN_ARROW){//down arrow makes snake go down
+      this.vel.x = 0;
+      this.vel.y = 5;
+      }
+    if(keyCode === LEFT_ARROW){//left arrow makes snake go left
+      this.vel.x = -5;
+      this.vel.y = 0;
+    }
+    if(keyCode === RIGHT_ARROW){//right arrow makes snake go right
+    this.vel.x = 5;
+    this.vel.y = 0;
+      }
+  }
+
   update(){
+    this.keyReleased();
+
     this.vel.limit(7);
     this.vel.add(this.acc);
     this.loc.add(this.vel);
