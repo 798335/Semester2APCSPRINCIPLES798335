@@ -4,7 +4,7 @@ class LifeSaver {
 
   constructor(x, y, dx, dy){
     this.loc = createVector(x, y);
-    this.vel = createVector(0, 0);
+    this.vel = createVector(dx, dy);
     this.acc = createVector(0, 0);
     this.clr = color(random(100, 255), 0, 0);
   }
@@ -100,9 +100,7 @@ class LifeSaver {
         if(gameLevel==='hard'){
           loadBalls(numBallsHard * 2);
         }
-        //gameState = 3;
-
       }
+    }
   }
-}
 }
