@@ -1,10 +1,4 @@
-//  Gabby Melamed
-// 	09/16/19
-//  This is a comment
-//  The setup function is called once when your program begins
-
 //declares all of the global variables
-
 var paddle;
 var balls = [];
 var moreBalls = [];
@@ -22,7 +16,9 @@ var buttonBack;
 var numBallsEasy = 5;
 var numBallsMedium = 10;
 var numBallsHard = 15;
-var lifeSaver;
+var lifeSaver1;
+var lifeSaver2;
+var lifeSaver3;
 
 //create canvas and background
 
@@ -245,25 +241,53 @@ function endGame() {
 //creates the paddle and the array of balls
 
 function loadBalls(x) {
-  paddle = new Paddle(250, 700, 300, 25);
+ //  paddle = new Paddle(250, 700, 300, 25);
+ // for(var i = 0; i < x; i++){
+ //   balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
+ // }
+ // lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-2, 2), random(-2, 2));
+
+ if(gameLevel === 'easy'){
+   paddle = new Paddle(250, 700, 300, 25);
   for(var i = 0; i < x; i++){
     balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
   }
-  if(gameLevel === 'easy'){
-    lifeSaver = new LifeSaver(random(0, 800), random(0, 700), random(-2, 2), random(-2, 2));
-  }else if(gameLevel === 'medium'){
-    lifeSaver = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
-  }else if(gameLevel === 'hard'){
-    lifeSaver = new LifeSaver(random(0, 800), random(0, 700), random(-6, 6), random(-6, 6));
+   lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-2, 2), random(-2, 2));
+ }else if(gameLevel === 'medium'){
+   paddle = new Paddle(250, 700, 300, 25);
+  for(var i = 0; i < x; i++){
+    balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
   }
+   lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
+   lifeSaver2 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
+ }else if(gameLevel === 'hard'){
+   paddle = new Paddle(250, 700, 300, 25);
+  for(var i = 0; i < x; i++){
+    balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
+  }
+   lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-6, 6), random(-6, 6));
+   lifeSaver2 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
+   lifeSaver3 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
+ }
 }
 
 //displays the paddle and the array of balls
 
-function runBalls(x) {
+function runBalls() {
   paddle.run();
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }
-    lifeSaver.run();
+  if(gameLevel === 'easy'){
+    lifeSaver1.run();
+  }
+  if(gameLevel === 'medium'){
+    lifeSaver1.run();
+    lifeSaver2.run();
+  }
+  if(gameLevel === 'hard'){
+    lifeSaver1.run();
+    lifeSaver2.run();
+    lifeSaver3.run();
+  }
 }

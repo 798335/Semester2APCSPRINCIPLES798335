@@ -1,6 +1,3 @@
-//  Gabby Melamed
-// 	09/16/19
-
 class Button {
 
   //constructs values to pass into the buttons

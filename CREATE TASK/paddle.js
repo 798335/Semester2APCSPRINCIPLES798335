@@ -1,6 +1,3 @@
-//  Gabby Melamed
-// 	09/16/19
-
 class Paddle {
 
   //passes in the values of the paddles

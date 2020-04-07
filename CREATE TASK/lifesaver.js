@@ -85,7 +85,7 @@ class LifeSaver {
     this.vel.add(this.acc);
     this.loc.add(this.vel);
 
-    if(lifeSaver.isColliding()){
+    if(lifeSaver1.isColliding()){
       if(this.vel.y > 0){
         lives = lives + 1;
         this.loc.x = random(0, 800);
@@ -102,5 +102,44 @@ class LifeSaver {
         }
       }
     }
+
+    if(gameLevel === 'medium' || gameLevel === 'hard'){
+      if(lifeSaver2.isColliding()){
+        if(this.vel.y > 0){
+          lives = lives + 1;
+          this.loc.x = random(0, 800);
+          this.loc.y = random(0, 800);
+        }else if(this.vel.y < 0){
+          if(gameLevel === 'easy'){
+            loadBalls(numBallsEasy * 2);
+          }
+          if(gameLevel==='medium'){
+            loadBalls(numBallsMedium * 2);
+          }
+          if(gameLevel==='hard'){
+            loadBalls(numBallsHard * 2);
+          }
+        }
+      }
+    }
+
+    if(gameLevel === 'hard' && lifeSaver3.isColliding()){
+      if(this.vel.y > 0){
+        lives = lives + 1;
+        this.loc.x = random(0, 800);
+        this.loc.y = random(0, 800);
+      }else if(this.vel.y < 0){
+        if(gameLevel === 'easy'){
+          loadBalls(numBallsEasy * 2);
+        }
+        if(gameLevel==='medium'){
+          loadBalls(numBallsMedium * 2);
+        }
+        if(gameLevel==='hard'){
+          loadBalls(numBallsHard * 2);
+        }
+      }
+    }
+
   }
 }

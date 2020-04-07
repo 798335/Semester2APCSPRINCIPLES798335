@@ -1,5 +1,3 @@
-//  Gabby Melamed
-// 	09/16/19
 class Ball {
 
   //constructs values to pass into the balls
@@ -27,23 +25,18 @@ class Ball {
   checkedges(){
     if(this.loc.x < 0){
       this.vel.x = -this.vel.x;
-      //this.loc.x = width; //when it hits side, warps to come out of other side
     }
 
     if(this.loc.x > width){
       this.vel.x = -this.vel.x;
-      //this.loc.x = 0;
     }
 
     if(this.loc.y < 0){
       this.vel.y = -this.vel.y;
-      //this.loc.y = height;//when it hits side, warps to come out of other side
     }
 
     if(this.loc.y > height){
       this.vel.y = -this.vel.y;
-      //this.loc.y = 0;
-
     }
   }
 
