@@ -241,12 +241,6 @@ function endGame() {
 //creates the paddle and the array of balls
 
 function loadBalls(x) {
- //  paddle = new Paddle(250, 700, 300, 25);
- // for(var i = 0; i < x; i++){
- //   balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
- // }
- // lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-2, 2), random(-2, 2));
-
  if(gameLevel === 'easy'){
    paddle = new Paddle(250, 700, 300, 25);
   for(var i = 0; i < x; i++){

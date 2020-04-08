@@ -39,48 +39,22 @@ class LifeSaver {
   checkEdges(){
     if(this.loc.x < 0){
       this.vel.x = -this.vel.x;
-      //this.loc.x = width; //when it hits side, warps to come out of other side
     }
 
     if(this.loc.x > width){
       this.vel.x = -this.vel.x;
-      //this.loc.x = 0;
     }
 
     if(this.loc.y < 0){
       this.vel.y = -this.vel.y;
-      //this.loc.y = height;//when it hits side, warps to come out of other side
     }
 
     if(this.loc.y > height){
       this.vel.y = -this.vel.y;
-      //this.loc.y = 0;
-
     }
-  }
-
-  keyReleased(){//makes arrow keys work
-    if(keyCode === UP_ARROW){//up arrow makes snake go up
-      this.vel.x = 0;
-      this.vel.y = -5;
-    }
-    if(keyCode === DOWN_ARROW){//down arrow makes snake go down
-      this.vel.x = 0;
-      this.vel.y = 5;
-      }
-    if(keyCode === LEFT_ARROW){//left arrow makes snake go left
-      this.vel.x = -5;
-      this.vel.y = 0;
-    }
-    if(keyCode === RIGHT_ARROW){//right arrow makes snake go right
-    this.vel.x = 5;
-    this.vel.y = 0;
-      }
   }
 
   update(){
-    this.keyReleased();
-
     this.vel.limit(7);
     this.vel.add(this.acc);
     this.loc.add(this.vel);
