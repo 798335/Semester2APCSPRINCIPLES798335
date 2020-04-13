@@ -1,24 +1,16 @@
 class Button {
 
-  //constructs values to pass into the buttons
-
-  constructor(x, y, msg){
+  constructor(x, y, msg){//constructs values to pass into the buttons
     this.loc = createVector(x, y);
     this.msg = msg;
     this.clr = color(random(255), random(255), random(255));
   }
 
-
-  //displays the buttons on the screen
-
-  run() {
+  run() {//displays the buttons on the screen
     this.render();
   }
 
-
-  //creates the button with the words in it
-
-  render() {
+  render() {//creates the button with the words in it
     fill(this.clr);
     rect(this.loc.x, this.loc.y, 100, 100)
     fill(255, 0, 0);
@@ -26,4 +18,4 @@ class Button {
     text(this.msg, this.loc.x, this.loc.y);
   }
 
-}
+}/////////end of Button class

@@ -20,19 +20,15 @@ var lifeSaver1;
 var lifeSaver2;
 var lifeSaver3;
 
-//create canvas and background
-
-function setup() {
+function setup() {//create canvas and background
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
 }
 
-//The draw function is called automatically @ 30 fps
 //associates a game screen with a gameState number
 //calls a game screen when the gameState = the associated number
-
 function draw() {
   background(5, 5, 5, 50);
   if(gameState === 1){
@@ -48,7 +44,6 @@ function draw() {
 
 //start screen of game
 //displays buttons with different levels the player can choose from
-
 function startGame() {
   lives = 5;
   clear();
@@ -57,13 +52,10 @@ function startGame() {
   fill(255, 255, 255);
   text('The Paddle Game', 30, 200);
 
-  //displays the buttons that have .run in makeButtons
-
-  makeButtons();
+  makeButtons();//displays the buttons that have .run in makeButtons
 
   //sets game level to the level of the button the player pressed on
   //changes the gameState to gameState = 2 which calls the gameMode function
-
   if(mouseIsPressed) {
     if(mouseX > 120 &&
       mouseX < 220 &&
@@ -83,20 +75,15 @@ function startGame() {
       mouseY < 700) {
         gameLevel = 'hard';
         gameState = 2;
-      }
-
-      //when the player presses on the instructions button, the gamescreen changes to the instructions screen
-
-      else if(mouseX > 570 &&
+      }else if(mouseX > 570 &&
       mouseX < 670 &&
       mouseY > 600 &&
-      mouseY < 700) {
+      mouseY < 700) {//when the player presses on the instructions button, the gamescreen changes to the instructions screen
         gameState = 4;
       }
     }
 
     //loads a different amount of balls depending on the game level that is selected
-
     if(gameLevel === 'easy'){
       loadBalls(numBallsEasy);
     }
@@ -110,7 +97,6 @@ function startGame() {
 
 //instruction screen
 //displays the game instructions
-
 function instructions() {
   clear();
   background(5, 5, 5);
@@ -127,12 +113,13 @@ function instructions() {
   text('You will win the game when you have collected all of the balls on the screen', 50, 280);
   text('Everytime a ball hits the bottom of the paddle, you will lose a life.', 50, 310);
   text('You will start with 5 lives and once your lives = 0, you lose the game.', 50, 340);
-  text('After you have won or lost the game, you will have the option to quit or play again.', 50, 370);
-  text('Good luck!', 50, 400);
+  text('The red square(s) will increase your lives if any one of them hit the top of the paddle.', 50, 370);
+  text('If they hit the bottom of the paddle, the number of balls for that level will double.', 50, 400)
+  text('After you have won or lost the game, you will have the option to quit or play again.', 50, 430);
+  text('Good luck!', 50, 460);
 
   //displays the back button
-  //when the back button is pressed, the gameState = 1 again the screen changes back to the start screen
-
+  //when the back button is pressed, the gameState = 1 again and the screen changes back to the start screen
   buttonBack.run();
   if(mouseIsPressed &&
     mouseX > 570 &&
@@ -145,7 +132,6 @@ function instructions() {
 
 //creates all of the buttons
 //only runs the buttons that appear in startGame
-
 function makeButtons() {
   buttonEasy = new Button(120, 600, 'EASY');
   buttonMedium = new Button(270, 600, 'MEDIUM');
@@ -164,42 +150,33 @@ function makeButtons() {
 function gameMode(){
 
     //displays a score in the game screen
-
     fill(255, 0, 0);
     textSize(35);
     text('score:' + score, 30, 30);
     text('lives:' + lives, 30, 70);
 
-    //drops the balls down from the top and displays the paddle
-
-    runBalls();
+    runBalls();//drops the balls down from the top and displays the paddle
 
     //when all of the balls have been collected for a level, screen switches to gameState = 3
-
     if (score === balls.length + score) {
       gameState = 3;
     }
 
     //when all of the lives have been used, screen switches to gameState = 3
-
     if(lives === 0) {
       gameState = 3;
     }
   }
 
-//the end screen of the game
-
-function endGame() {
+function endGame() {//the end screen of the game
     clear();
     background(5, 5, 5);
 
     //displays buttonPlayAgain and buttonEndGame
-
     buttonPlayAgain.run();
     buttonEndGame.run();
 
     //if player collected all of the balls, 'YOU WIN' is displayed on the screen
-
     if(score === balls.length + score)  {
       textSize(100);
       fill(255, 10, 10);
@@ -207,7 +184,6 @@ function endGame() {
     }
 
     //if player runs out of lives, 'YOU LOST' is displayed on the screen
-
     if(lives === 0) {
       fill(255, 0, 0);
       textSize(100);
@@ -215,7 +191,6 @@ function endGame() {
     }
 
       //if player pressed buttonPlayAgain, gameState is reset to one and the start screen will appear
-
       if(mouseIsPressed &&
         mouseX > 500 &&
         mouseX < 600 &&
@@ -228,7 +203,6 @@ function endGame() {
         }
 
         //if player pressed buttonEndGame, everything on the screen is erased and the screen turns white
-
       if(mouseIsPressed &&
         mouseX > 200 &&
         mouseX < 300 &&
@@ -238,35 +212,32 @@ function endGame() {
         }
 }
 
-//creates the paddle and the array of balls
-
-function loadBalls(x) {
+function loadBalls(x) {//creates the paddle, the array of balls, and the lifesavers
  if(gameLevel === 'easy'){
    paddle = new Paddle(250, 700, 300, 25);
-  for(var i = 0; i < x; i++){
-    balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
-  }
+   for(var i = 0; i < x; i++){
+     balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
+   }
    lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-2, 2), random(-2, 2));
  }else if(gameLevel === 'medium'){
    paddle = new Paddle(250, 700, 300, 25);
-  for(var i = 0; i < x; i++){
-    balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
-  }
+   for(var i = 0; i < x; i++){
+     balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
+   }
    lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
    lifeSaver2 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
  }else if(gameLevel === 'hard'){
    paddle = new Paddle(250, 700, 300, 25);
-  for(var i = 0; i < x; i++){
-    balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
-  }
+   for(var i = 0; i < x; i++){
+     balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
+   }
    lifeSaver1 = new LifeSaver(random(0, 800), random(0, 700), random(-6, 6), random(-6, 6));
    lifeSaver2 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
    lifeSaver3 = new LifeSaver(random(0, 800), random(0, 700), random(-4, 4), random(-4, 4));
  }
 }
 
-//displays the paddle and the array of balls
-
+//displays the paddle, the array of balls, and the lifesavers
 function runBalls() {
   paddle.run();
   for(var i = 0; i < balls.length; i++){
